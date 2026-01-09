@@ -2,6 +2,7 @@ let Data = [];
 const maxsal = document.getElementById('Max_sal')
 const result = document.getElementById('result')
 const exp = document.getElementById('experience')
+const sal = document.getElementById('Totsal')
 maxsal.addEventListener('click',()=>{
     fetch('data.json')
 .then((res)=>res.json())
@@ -29,7 +30,7 @@ exp.addEventListener('click',()=>{
     fetch('data.json')
     .then((res)=>res.json())
     .then((data)=>{
-        let bonus = '';
+        let bonus = 0;
         let output = '';
         Data = data;
         Data.sort(function(a,b){
@@ -54,3 +55,28 @@ exp.addEventListener('click',()=>{
     })
 })
 
+sal.addEventListener('click',()=>{
+        fetch('data.json')
+        .then((res)=>res.json())
+        .then((data)=>{
+        let expenditure = 0;
+        let output = '';
+        Data = data;
+        Data.sort(function(a,b){
+            return b.salary-a.salary;
+        })
+        
+        Data.forEach(function(user){
+            if(user.experience>3){
+                expenditure += user.salary;
+                output = `
+                <ul>
+                <li>Total Expenditure: ${expenditure}</li>
+                </ul>
+                `
+            }
+        })
+        result.innerHTML = output;
+})
+
+})
