@@ -1,8 +1,8 @@
 let Data = [];
 const maxsal = document.getElementById('Max_sal')
 const result = document.getElementById('result')
-
-fetch('data.json')
+maxsal.addEventListener('click',()=>{
+    fetch('data.json')
 .then((res)=>res.json())
 .then((data)=>{
     let output = "";
@@ -20,5 +20,7 @@ fetch('data.json')
         `
     });
     result.innerHTML = output;
+})
+
 })
 
