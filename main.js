@@ -42,8 +42,9 @@ exp.addEventListener('click',()=>{
             if(user.experience>3){
                 output += `
                 <ul>
-                <li>id: ${user.id}</li>
+                
                 <li>Name: ${user.name}</li>
+                <li>Department: ${user.department}</li>
                 <li>Experience: ${user.experience}</li>
                 <li>bonus: ${bonus}</li>
                 </ul>
